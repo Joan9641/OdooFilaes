@@ -1,0 +1,38 @@
+<odoo>
+  <record id="view_montepios_tree" model="ir.ui.view">
+      <field name="name">montepios.tree</field>
+      <field name="model">gestion_filaes.montepios</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="soci_id"/>
+              <field name="filada_id"/>
+              <field name="aportacio"/>
+              <field name="fecha_aportacio"/>
+          </tree>
+      </field>
+  </record>
+
+  <record id="view_montepios_form" model="ir.ui.view">
+      <field name="name">montepios.form</field>
+      <field name="model">gestion_filaes.montepios</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                  <group>
+                      <field name="soci_id"/>
+                      <field name="filada_id" domain="[('socis_ids', 'in', soci_id)]"/>
+                      <field name="aportacio"/>
+                      <field name="fecha_aportacio"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record>
+  
+  <record id="action_montepios" model="ir.actions.act_window">
+      <field name="name">Aportacions</field>
+      <field name="res_model">gestion_filaes.montepios</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
+

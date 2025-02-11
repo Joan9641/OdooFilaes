@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_socios,socios,model_gestion_filaes_socios,base.group_user,1,1,1,1
+access_filaes,filaes,model_gestion_filaes_filaes,base.group_user,1,1,1,1
+access_historial,historial,model_gestion_filaes_historial,base.group_user,1,1,1,1
+access_montepios,montepios,model_gestion_filaes_montepios,base.group_user,1,1,1,1
+access_soci_alta_wizard,Accés a Wizard d'Alta,model_gestion_filaes_soci_alta_wizard,,1,1,1,1
+access_soci_baixa_wizard,Accés a Wizard de Baixa,model_gestion_filaes_soci_baixa_wizard,,1,1,1,1
+
+

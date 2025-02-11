@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="menu_gestion_filaes" name="Gestió de Filaes" sequence="10"/>
+
+    <menuitem id="menu_filaes" name="Filaes" parent="menu_gestion_filaes" action="action_filaes" sequence="10"/>
+    
+    <menuitem id="menu_socios" name="Socis" parent="menu_gestion_filaes" action="action_socios" sequence="20"/>
+    
+    <menuitem id="menu_historial" name="Historial de Socis" parent="menu_gestion_filaes" action="action_historial" sequence="30"/>
+    
+    <menuitem id="menu_montepios" name="Aportacions" parent="menu_gestion_filaes" action="action_montepios" sequence="40"/>
+
+</odoo>
+

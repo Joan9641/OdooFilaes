@@ -1,0 +1,97 @@
+<odoo>
+  <record id="view_socios_tree" model="ir.ui.view">
+      <field name="name">socios.tree</field>
+      <field name="model">gestion_filaes.socios</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="name"/>
+              <field name="fecha_nacimiento"/>
+              <field name="condicio"/>
+              <field name="antiguitat"/>
+          </tree>
+      </field>
+  </record>
+
+  <record id="view_socios_form" model="ir.ui.view">
+      <field name="name">socios.form</field>
+      <field name="model">gestion_filaes.socios</field>
+      <field name="arch" type="xml">
+          <form string="Socios">
+          <group>
+    		<button name="action_open_wizard_alta" type="object" string="Donar d'Alta" class="btn-primary"/>
+    		<button name="action_open_wizard_baixa" type="object" string="Donar de Baixa" class="btn-secondary"/> 
+    		</group>
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="fecha_nacimiento"/>
+                      <field name="certificat_minusvalidesa" widget="image"/>
+                      <field name="condicio"/>
+                      <field name="antiguitat"/>
+                      <field name="filada_ids" widget="many2many_tags"/>
+                  </group>
+                  <group string="Historial" colspan="4">
+                      <field name="historial">
+                          <tree>
+                              <field name="soci_id"/>
+                              <field name="filada_id"/>
+                              <field name="accio"/>
+                              <field name="fecha_accion"/>
+                          </tree>
+                      </field>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+  </record>
+  
+  <record id="action_socios" model="ir.actions.act_window">
+      <field name="name">Socis</field>
+      <field name="res_model">gestion_filaes.socios</field>
+      <field name="view_mode">tree,form,kanban</field>
+      <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+              Afig un soci.
+          </p>
+      </field>
+  </record>
+  
+    <record id="view_wizard_alta_filada" model="ir.ui.view">
+        <field name="name">wizard.alta.filada.form</field>
+        <field name="model">gestion_filaes.soci_alta_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Donar d'Alta en Filà">
+                <sheet>
+                    <group>
+                        <field name="soci_id" readonly="1"/>
+                        <field name="filada_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="confirmar_alta" type="object" string="Confirmar" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wizard_baixa_filada" model="ir.ui.view">
+        <field name="name">wizard.baixa.filada.form</field>
+        <field name="model">gestion_filaes.soci_baixa_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Donar de Baixa en Filà">
+                <sheet>
+                    <group>
+                        <field name="soci_id" readonly="1"/>
+                        <field name="filada_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="confirmar_baixa" type="object" string="Confirmar" class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+

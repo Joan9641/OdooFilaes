@@ -1,0 +1,5 @@
+http://localhost:8069/gestion_filaes/montepios?soci_id=5&filada_id=1&any=2025
+
+Por comandos:
+curl -X POST http://localhost:8069/gestion_filaes/socis      -H "Content-Type: application/json"      -d '{"filada_id": 1, "condicio": "actiu"}'
+

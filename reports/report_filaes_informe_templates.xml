@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_filaes_informe_document">
+    <t t-call="web.external_layout">
+      <div class="page">
+        <main>
+          <t t-foreach="docs" t-as="filada">
+            <div>
+              <h2 class="text-center">Filà: <t t-esc="filada.name"/></h2>
+
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nom del Soci</th>
+                    <th>Data d'Inscripció</th>
+                    <th>Data de Naixement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <t t-set="socis_sorted" t-value="filada.get_sorted_socis()"/>
+                  <t t-foreach="socis_sorted" t-as="soci" t-foreach-index="index">
+                    <tr>
+                      <td><t t-esc="(index or 0) + 1"/></td>
+                      <td><t t-esc="soci.name"/></td>
+                      <td>
+                        <t t-esc="soci.get_inscripcion_date(filada.id) or 'N/A'"/>
+                      </td>
+                      <td><t t-esc="soci.fecha_nacimiento or 'N/A'"/></td>
+                    </tr>
+                  </t>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" class="text-right"><strong>Total Montepíos:</strong></td>
+                    <td><t t-esc="filada.total_montepios or 0"/></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </t>
+        </main>
+      </div>
+    </t>
+  </template>
+</odoo>
+
